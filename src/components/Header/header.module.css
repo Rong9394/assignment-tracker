@@ -18,6 +18,11 @@
   padding: 0 1rem;
 }
 
+.newAssignmentForm div {
+  width: 100%;
+  display: flex;
+}
+
 .newAssignmentForm input {
   height: 100%;
   flex: 1;
@@ -51,3 +56,9 @@
   background: red;
 }
 
+#datePicker {
+  height: 80%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
