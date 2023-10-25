@@ -47,3 +47,11 @@ p.textCompleted {
   border: none;
   color: #808080;
 }
+
+.assignment span {
+  background: #808080;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  gap: 12px;
+}
