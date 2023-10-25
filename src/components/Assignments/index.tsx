@@ -2,16 +2,16 @@ import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 import { useState } from "react";
 
-export function Assignments({list, deleteFromList}:{list: string[], deleteFromList:(title: string)=>void}) {
+export function Assignments({list, deleteFromList}:{list: Array<[string, Date|undefined]>, deleteFromList:(title: string)=>void}) {
   
+  // state to keep track of number of completed assignments
   const [completed, setCompleted] = useState(0);
 
+  // handler to update number of completed assignments
   const updateCompleted = (f:boolean) => {
-    console.log(f);
     if(!f){setCompleted(completed+1)}
     else if(f && completed> 0){setCompleted(completed-1)}
   }
-  console.log(completed);
 
   return (
     <section className={styles.assignments}>
@@ -28,7 +28,7 @@ export function Assignments({list, deleteFromList}:{list: string[], deleteFromLi
       </header>
 
       <div className={styles.list}>
-        {list.map((title) => {return <Assignment title={title} deleteFromList={deleteFromList} updateCompleted={updateCompleted} />})}
+        {list.map((entry) => {return <Assignment title={entry[0]} dueDate={entry[1]} deleteFromList={deleteFromList} updateCompleted={updateCompleted} />})}
       </div>
     </section>
   );
